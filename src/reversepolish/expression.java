@@ -20,7 +20,6 @@ public class expression{
         this.segni = new Stack();
         for(int i = 0; i<espressione.length(); i++){
             
-            System.out.println("giro "+i+": \n"+segni);
             switch(espressione.charAt(i)){
                 case '+':
                     if(espressione.charAt(i+1) == '+' || espressione.charAt(i+1) == '-'){
@@ -47,8 +46,7 @@ public class expression{
                     aperte ++;
                 break;
                 case ')':
-                    while(!segni.isEmpty() && parentesi < aperte){
-                        System.out.println(segni.peek());
+                    while(!segni.isEmpty() && parentesi != aperte){
                         if(segni.peek() != (Character)'('){
                             polish += segni.pop();
                         }else{
@@ -56,9 +54,6 @@ public class expression{
                             parentesi ++;
                             aperte --;
                         }
-                        
-                        
-                        System.out.println("Nuova Stringa: " + polish);
                     }
                     parentesi = 0;
                 break;
@@ -77,7 +72,7 @@ public class expression{
     
     private void push(char c){
         if(!segni.isEmpty() && segni.peek() != (Character)'(')
-        polish += segni.pop();
+            polish += segni.pop();
         segni.push(c);
     }
     

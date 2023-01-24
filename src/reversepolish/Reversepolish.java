@@ -13,6 +13,10 @@ public class Reversepolish {
         
         System.out.println(e2.toString());
         
+        expression e3 = new expression("5 + (10 * 2)");
+        
+        System.out.println(e3.toString());
+        
     }
     
 }
