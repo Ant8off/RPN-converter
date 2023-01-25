@@ -70,6 +70,7 @@ public class expression{
         }
         
         polish = polish.strip();                                                //formats the String
+        format();
     }
     
     /**
@@ -80,6 +81,17 @@ public class expression{
         if(!segni.isEmpty() && segni.peek() != (Character)'(')                  //check if stack is not empty and if the top has (
             polish += segni.pop();                                              //pops into polish last sign
         segni.push(c);                                                          //push into stack the sign
+    }
+    
+    /**
+     * 
+     */
+    private void format(){
+        for(int i = 0; i< polish.length()-1; i++){                              //replace all double spaces with a single one
+            if(polish.charAt(i) == ' ' && polish.charAt(i+1) == ' '){
+               polish = polish.replaceFirst("  ", " ");
+            }
+        }
     }
     
     /**
